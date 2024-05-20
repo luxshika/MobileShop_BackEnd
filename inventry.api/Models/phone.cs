@@ -1,16 +1,16 @@
 ﻿namespace inventry.api.Models
 {
-    public class phone
+    public class Phone
     {
        
         public int Id { get; set; }
-        public string productName { get; set; }
-        public string brandName { get; set; }
-        public int price { get; set; }
-        public int quantity { get; set; }
-        public string madein { get; set; }
-        public string feature { get; set; }
-        public string image { get; set; }
+        public string ProductName { get; set; }
+        public string BrandName { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
+        public string Madein { get; set; }
+        public string Feature { get; set; }
+        public string Image { get; set; }
 
     }
 }

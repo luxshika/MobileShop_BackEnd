@@ -9,8 +9,8 @@ using inventry.api.data;
 
 namespace inventry.api.Migrations
 {
-    [DbContext(typeof(FullStackDbContext))]
-    partial class FullStackDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(BackEndDbContext))]
+    partial class BackEndDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace inventry.api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("inventry.api.Models.phone", b =>
+            modelBuilder.Entity("inventry.api.Models.Phone", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,30 +29,30 @@ namespace inventry.api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("brandName")
+                    b.Property<string>("BrandName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("feature")
+                    b.Property<string>("Feature")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("image")
+                    b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("madein")
+                    b.Property<string>("Madein")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("price")
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<string>("productName")
+                    b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("quantity")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("phones");
+                    b.ToTable("Phones");
                 });
 #pragma warning restore 612, 618
         }
