@@ -9,18 +9,18 @@ namespace inventry.api.Controllers
     [Route("api/[controller]")]
     public class PhoneController : Controller
     {
-        private readonly BackEndDbContext _BackEndDbContext;
+        private readonly BackEndDbContext _backEndDbContext;
 
         public PhoneController(BackEndDbContext BackEndDbContext)
         {
-            _BackEndDbContext = BackEndDbContext;
+            _backEndDbContext = BackEndDbContext;
         }
 
        
         [HttpGet]
         public async Task<IActionResult> GetAllPhone()
         {
-            var Phones = await _BackEndDbContext.Phones.ToListAsync();
+            var Phones = await _backEndDbContext.Phones.ToListAsync();
             return Ok(Phones);
         }
 
@@ -28,7 +28,7 @@ namespace inventry.api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPhoneById(int id)
         {
-            var Phone = await _BackEndDbContext.Phones.FindAsync(id);
+            var Phone = await _backEndDbContext.Phones.FindAsync(id);
             if (Phone == null)
             {
                 return NotFound();
@@ -40,8 +40,8 @@ namespace inventry.api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPhones([FromBody] Phone phonerequest)
         {
-            await _BackEndDbContext.Phones.AddAsync(phonerequest);
-            await _BackEndDbContext.SaveChangesAsync();
+            await _backEndDbContext.Phones.AddAsync(phonerequest);
+            await _backEndDbContext.SaveChangesAsync();
             return Ok(phonerequest);
         }
 
@@ -49,7 +49,7 @@ namespace inventry.api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePhone(int id, [FromBody] Phone phonerequest)
         {
-            var existingPhone = await _BackEndDbContext.Phones.FindAsync(id);
+            var existingPhone = await _backEndDbContext.Phones.FindAsync(id);
             if (existingPhone == null)
             {
                 return NotFound();
@@ -63,8 +63,8 @@ namespace inventry.api.Controllers
             existingPhone.Feature = phonerequest.Feature;
             existingPhone.Image = phonerequest.Image;
 
-            _BackEndDbContext.Phones.Update(existingPhone);
-            await _BackEndDbContext.SaveChangesAsync();
+            _backEndDbContext.Phones.Update(existingPhone);
+            await _backEndDbContext.SaveChangesAsync();
 
             return Ok(existingPhone);
         }
@@ -73,14 +73,14 @@ namespace inventry.api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePhone(int id)
         {
-            var existingPhone = await _BackEndDbContext.Phones.FindAsync(id);
+            var existingPhone = await _backEndDbContext.Phones.FindAsync(id);
             if (existingPhone == null)
             {
                 return NotFound();
             }
 
-            _BackEndDbContext.Phones.Remove(existingPhone);
-            await _BackEndDbContext.SaveChangesAsync();
+            _backEndDbContext.Phones.Remove(existingPhone);
+            await _backEndDbContext.SaveChangesAsync();
 
             return Ok(existingPhone);
         }
