@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<FullStackDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("FullStackConnectionString")));
+builder.Services.AddDbContext<BackEndDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("BackEndConnectionString")));
 
 var app = builder.Build();
 
